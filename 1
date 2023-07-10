@@ -1,0 +1,88 @@
+if(playGame) {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const guess = parseInt(inputField.value);
+
+  validateGuess(guess);
+});
+}
+
+function validateGuess(guess) {
+  if (isNaN(guess)) {
+    alert("Please Enter a Valid Number");
+  } else if (guess > 10) {
+    alert("Please Enter Number below 10");
+  } else if (guess < 1) {
+    alert("Please Enter Number Above 1");
+  } else {
+    prevGuess.push(guess);
+
+    if (numGuess === 10) {
+     displayGuesses(guess)
+     displayMessage(`Game over! Number was ${random}`)
+     endgame()
+    }
+
+    else  {
+        displayGuesses(guess)
+        checkGuess(guess)
+    }
+  }
+}
+
+function displayGuesses(guess) {
+    inputField.value= ""
+    const previous = document.querySelector('.prev')
+    previous.innerHTML = `${prevGuess}`
+    numGuess++
+    const remain = document.querySelector('.remain')
+    remain.innerHTML= ` ${10-numGuess} `
+}
+
+function checkGuess(guess) {
+    if(guess===random) {
+        displayMessage(`You Guessed Correct`)
+        endgame()
+    }
+    if(guess>random) {
+        displayMessage(`Too High! Try Again`)
+    }
+
+    else  if(guess<random) {
+        displayMessage(`Too Low! Try Again`)
+    }
+}
+
+
+function displayMessage(message) {
+msg.innerHTML = `${message}`
+}
+
+
+function endgame() {
+    inputField.value= ""
+    inputField.setAttribute('disabled', "")
+    playGame= false;
+    restart.style.display= "block"
+    newGame()
+}
+
+
+function newGame() {
+
+
+restart.addEventListener('click' ,()=>{
+inputField.value= ""
+inputField.removeAttribute('disabled')
+ random = Math.floor(Math.random()*10)
+ numGuess = 1
+ prevGuess = [];
+ playGame = true
+
+const previous = document.querySelector('.prev')
+previous.innerHTML = ""
+
+const remain = document.querySelector('.remain')
+    remain.innerHTML= ` ${10-numGuess} `
+})
+}

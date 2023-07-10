@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12rem auto;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    border: 0.1rem solid black;
+    min-width: 50vw;
+    min-height: 50vh;
+    background: #7f8c8d;
+    text-align: center;
+}
+.head {
+    margin: 2.5rem 0;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.input  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#input-field {
+min-width: 20rem;
+padding: 0.8rem;
+margin-right: 1rem;
+border-radius: 0.5rem;
+text-align: center;
+}
+
+#sbmt {
+    padding: 0.5rem;
+    color: white;
+    background-color: #7f8c8d;
+}
+
+.result {
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.lowOrHi {
+    margin: 2rem 0;
+    font-size:2.5rem;
+}
+
+.guesses {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+}
+
+.remaining {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+}
+
+
+#restart , .rst{
+    display: block;
+    border-radius: 0.5rem;
+    background-color: #7f8c8d;
+    color: white;
+    padding: 0.5rem;
+    margin: 1rem 0;
+}
+
+
+@media (max-width:768px) {
+    .container {
+        min-width: 60vw;
+        min-height: 50vh;
+
+    }
+}
+
+
+@media (max-width:552px) {
+    .container {
+        min-width: 70vw;
+        min-height: 60vh;
+    }
+
+    main {
+        margin: 10rem auto;
+    }
+}
